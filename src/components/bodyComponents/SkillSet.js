@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Loader from "../ui/Loader";
 // import Colors from "../../constants/Colors";
 import { BodyTitle, TitleText } from "./Body";
 import SkillCard from "./SkillCard";
@@ -19,12 +20,19 @@ const SkillsWrapper = styled.div`
 `;
 
 const SkillSet = ({ skillset }) => {
+  const [loaderVisibility, setLoaderVisibility] = useState(true);
+
+  useEffect(() => {
+    skillset ? setLoaderVisibility(false) : setLoaderVisibility(true);
+  }, [skillset, setLoaderVisibility]);
+
   return (
     <SkillSetContainer>
       <BodyTitle>
         <TitleText>Skillset</TitleText>
       </BodyTitle>
       <SkillsWrapper>
+        <Loader isVisible={loaderVisibility} />
         {skillset &&
           skillset.map((sks, index) => (
             <SkillCard key={index} title={sks.skillType} skills={sks.skill} />

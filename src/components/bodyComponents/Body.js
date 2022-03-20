@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Colors from "../../constants/Colors";
+import Loader from "../ui/Loader";
 import ProjectList from "./ProjectList";
 import SkillSet from "./SkillSet";
 
@@ -59,7 +60,10 @@ const Body = () => {
 
   const [skillset, setSkillSet] = useState();
 
+  const [loaderVisibility, setLoaderVisibility] = useState(false);
+
   useEffect(() => {
+    setLoaderVisibility(true);
     const getData = async () => {
       const res = await fetch(
         "https://portfolio-raghav-sharma.herokuapp.com/api/allProjects"
@@ -105,6 +109,7 @@ const Body = () => {
         react_native: reactNativeProjects,
         kotlin: kotlinProjects,
       }));
+      setLoaderVisibility(false);
     };
 
     getData();
@@ -163,16 +168,19 @@ const Body = () => {
       <PortfolioContent>
         <PortfolioItem>
           <TitleText>Web Development</TitleText>
+          <Loader isVisible={loaderVisibility} />
           <ProjectList list={projects.web} />
         </PortfolioItem>
 
         <PortfolioItem>
           <TitleText>Android Kotlin</TitleText>
+          <Loader isVisible={loaderVisibility} />
           <ProjectList list={projects.kotlin} />
         </PortfolioItem>
 
         <PortfolioItem>
           <TitleText>React Native</TitleText>
+          <Loader isVisible={loaderVisibility} />
           <ProjectList list={projects.react_native} />
         </PortfolioItem>
       </PortfolioContent>
