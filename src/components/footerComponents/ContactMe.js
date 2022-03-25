@@ -78,7 +78,7 @@ const ContactMe = () => {
       return;
     }
     const res = await fetch(
-      "https://portfolio-raghav-sharma.herokuapp.com/api/sendMail",
+      "https://portfolio-raghav-sharma.herokuapp.com/api/send_mail",
       {
         method: "Post",
         body: JSON.stringify({
