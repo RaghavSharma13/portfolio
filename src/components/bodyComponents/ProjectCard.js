@@ -100,7 +100,7 @@ const ProjectCard = ({ id, title, image, github, live, apk }) => {
           </CTAButton>
           {apk ? (
             <CTAButton
-              href={`https://portfolio-raghav-sharma.herokuapp.com/api/download/${id}`}
+              href={`https://raghavsharma13.pythonanywhere.com/api/download/${id}`}
               secondarySet
             >
               Download apk

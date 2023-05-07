@@ -66,7 +66,7 @@ const Body = () => {
     setLoaderVisibility(true);
     const getData = async () => {
       const res = await fetch(
-        "https://portfolio-raghav-sharma.herokuapp.com/api/allProjects"
+        "https://raghavsharma13.pythonanywhere.com/api/allProjects"
       );
 
       if (res.status !== 200) {
@@ -118,7 +118,7 @@ const Body = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
-        "https://portfolio-raghav-sharma.herokuapp.com/api/skillset"
+        "https://raghavsharma13.pythonanywhere.com/api/skillset"
       );
 
       if (res.status !== 200) {
